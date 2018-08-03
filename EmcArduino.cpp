@@ -281,15 +281,15 @@ Note concerning switches: Be smart!
 
 // Where should the VIRTUAL Min switches be set to (ignored if using real switches).
 // Set to whatever you specified in the StepConf wizard.
-#define xMin -5.1
-#define yMin -5.1
-#define zMin -5.1
-#define aMin -5.1
-#define bMin -5.1
-#define cMin -5.1
-#define uMin -5.1
-#define vMin -5.1
-#define wMin -5.1
+#define xMin -9999.9
+#define yMin -9999.9
+#define zMin -9999.9
+#define aMin -9999.9
+#define bMin -9999.9
+#define cMin -9999.9
+#define uMin -9999.9
+#define vMin -9999.9
+#define wMin -9999.9
 
 // Where should the VIRTUAL home switches be set to (ignored if using real switches).
 // Set to whatever you specified in the StepConf wizard.
@@ -305,15 +305,15 @@ Note concerning switches: Be smart!
 
 // Where should the VIRTUAL Max switches be set to (ignored if using real switches).
 // Set to whatever you specified in the StepConf wizard.
-#define xMax 15.1
-#define yMax 15.1
-#define zMax 15.1
-#define aMax 15.1
-#define bMax 15.1
-#define cMax 15.1
-#define uMax 15.1
-#define vMax 15.1
-#define wMax 15.1
+#define xMax 9999.9
+#define yMax 9999.9
+#define zMax 9999.9
+#define aMax 9999.9
+#define bMax 9999.9
+#define cMax 9999.9
+#define uMax 9999.9
+#define vMax 9999.9
+#define wMax 9999.9
 
 #define giveFeedBackX false
 #define giveFeedBackY false

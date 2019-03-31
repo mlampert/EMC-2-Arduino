@@ -200,10 +200,10 @@ Note concerning switches: Be smart!
 #define wMaxPin -1
 
 #define powerSwitchIsMomentary true // Set to true if your using a momentary switch.
-#define powerPin    27 // Power switch. Optional
+#define powerPin    26 // Power switch. Optional
 #define powerLedPin -1 // Power indicator. Optional
 
-#define eStopPin         26 // E-Stop switch. You really, REALLY should have this one.
+#define eStopPin         27 // E-Stop switch. You really, REALLY should have this one.
 #define eStopLedPin      -1 // E-Stop indicator. Optional
 
 #define probePin  48 // CNC Touch probe input.     Optional

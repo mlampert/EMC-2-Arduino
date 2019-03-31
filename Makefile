@@ -23,10 +23,10 @@ AVR_TOOLS_PATH ?=
 UPLOAD_RATE        ?= 115200
 AVRDUDE_PROGRAMMER ?= wiring
 # on most linuxes this will be /dev/ttyACM0 or /dev/ttyACM1
-UPLOAD_PORT        ?= /dev/ttyUSB0
-#UPLOAD_PORT        ?= /dev/ttyACM0
-#UPLOAD_PORT        ?= /dev/ttyAMA0
-#UPLOAD_PORT        ?= /dev/ttyS0
+UPLOAD_PORT ?= /dev/ttyACM0
+#UPLOAD_PORT ?= /dev/ttyACM0
+#UPLOAD_PORT ?= /dev/ttyACM0
+#UPLOAD_PORT ?= /dev/ttyACM0
 
 #Directory used to build files in, contains all the build files, from object files to the final hex file
 #on linux it is best to put an absolute path like /home/username/tmp .

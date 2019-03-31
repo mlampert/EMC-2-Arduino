@@ -501,20 +501,9 @@ float fbvOld=0;
 float fbwOld=0;
 
 
-void jog(float x, float y, float z, float a, float b, float c, float u, float v, float w)
+void updateAxesState()
 {
-  pos_x=x;
-  pos_y=y;
-  pos_z=z;
-  pos_a=a;
-  pos_b=b;
-  pos_c=c;
-  pos_u=u;
-  pos_v=v;
-  pos_w=w;
-  // Handle our limit switches.
-    // Compressed to save visual space. Otherwise it would be several pages long!
-    
+
   if(!useRealMinX){if(pos_x > xMin){xMinState=true;}else{xMinState=false;}}else{xMinState=digitalReadFast(xMinPin);if(xMinPinInverted)xMinState=!xMinState;}
   if(!useRealMinY){if(pos_y > yMin){yMinState=true;}else{yMinState=false;}}else{yMinState=digitalReadFast(yMinPin);if(yMinPinInverted)yMinState=!yMinState;}
   if(!useRealMinZ){if(pos_z > zMin){zMinState=true;}else{zMinState=false;}}else{zMinState=digitalReadFast(zMinPin);if(zMinPinInverted)zMinState=!zMinState;}
@@ -574,6 +563,23 @@ void jog(float x, float y, float z, float a, float b, float c, float u, float v,
   if(uMaxState != uMaxStateOld){uMaxStateOld=uMaxState;Serial.print("u");Serial.print(uMaxState+1);}
   if(vMaxState != vMaxStateOld){vMaxStateOld=vMaxState;Serial.print("v");Serial.print(vMaxState+1);}
   if(wMaxState != wMaxStateOld){wMaxStateOld=wMaxState;Serial.print("w");Serial.print(wMaxState+1);}
+}
+
+void jog(float x, float y, float z, float a, float b, float c, float u, float v, float w)
+{
+  pos_x=x;
+  pos_y=y;
+  pos_z=z;
+  pos_a=a;
+  pos_b=b;
+  pos_c=c;
+  pos_u=u;
+  pos_v=v;
+  pos_w=w;
+  // Handle our limit switches.
+  // Compressed to save visual space. Otherwise it would be several pages long!
+    
+  updateAxesState();
 
   if(xMinState && !xMaxState)stepper0Goto=pos_x*stepsPerInchX*2;
   if(yMinState && !yMaxState)stepper1Goto=pos_y*stepsPerInchY*2;
@@ -934,6 +940,8 @@ void loop()
  
     // reset the buffer
     sofar=0;
+  } else {
+    updateAxesState();
   }
   updateSpindleRevs();
   if(!globalBusy){

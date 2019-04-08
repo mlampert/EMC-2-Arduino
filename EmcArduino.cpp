@@ -50,9 +50,9 @@ Note concerning switches: Be smart!
 #define VERSION "00072"      // 5 caracters
 #define ROLE    "ALL-IN-ONE" // 10 characters
 
-#define stepsPerInchX 3200
-#define stepsPerInchY 3200
-#define stepsPerInchZ 3200
+#define stepsPerInchX 347.5
+#define stepsPerInchY 347.5
+#define stepsPerInchZ 347.5
 #define stepsPerInchA 3200
 #define stepsPerInchB 3200
 #define stepsPerInchC 3200
@@ -341,7 +341,7 @@ Note concerning switches: Be smart!
 
 // Invert direction of movement for an axis by setting to false.
 boolean dirState0=true;
-boolean dirState1=true;
+boolean dirState1=false;
 boolean dirState2=true;
 boolean dirState3=true;
 boolean dirState4=true;

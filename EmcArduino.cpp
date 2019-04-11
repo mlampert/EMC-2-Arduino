@@ -219,7 +219,7 @@ Note concerning switches: Be smart!
 #define spindleDirection         2 // Optional
 #define spindleDirectionInverted true // Set to true if spindle runs in reverse.
 
-#define spindleTach      18 // Must be an interrupt pin. Optional.
+#define spindleTach      -18 // Must be an interrupt pin. Optional.
                             // UNO can use pin 2 or 3.
                             // Mega2560 can use 2,3,18,19,20 or 21.
 
@@ -759,6 +759,7 @@ boolean spindleAtSpeed()
       return false;
     }
   }else{
+    if(spindleEnablePin>0){digitalWriteFast(spindleEnablePin,spindleEnableState);}
     return spindleEnabled; // No tach? We'll fake it.
   }
 }
@@ -945,17 +946,17 @@ void loop()
   }
   updateSpindleRevs();
   if(!globalBusy){
-       if(spindleEnabled!=true)
-      { /* motor off */
-        if(spindleEnablePin>0){digitalWriteFast(spindleEnablePin,!spindleEnableState);}
-       }else{
-	boolean spindleAtSpeedState=spindleAtSpeed();
-	if(spindleAtSpeedState != spindleAtSpeedStateOld){
-		  spindleAtSpeedStateOld=spindleAtSpeedState;
-		  Serial.print("S");
-		  Serial.println(spindleAtSpeedState);
-	}
-	}
+    if(spindleEnabled!=true)
+    { /* motor off */
+      if(spindleEnablePin>0){digitalWriteFast(spindleEnablePin,!spindleEnableState);}
+    }else{
+	    boolean spindleAtSpeedState=spindleAtSpeed();
+	    if(spindleAtSpeedState != spindleAtSpeedStateOld){
+		    spindleAtSpeedStateOld=spindleAtSpeedState;
+		    Serial.print("S");
+		    Serial.println(spindleAtSpeedState);
+	    }
+	  }
   }
   
   stepLight(); // call every loop cycle to update stepper motion.
